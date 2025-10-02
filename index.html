@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Mentorly — Personalized Teaching. On Demand.</title>
+    <meta name="description" content="Mentorly is Teaching-as-a-Service: AI lesson builder, on-demand mentors, adaptive curriculum, dashboards, and a white-label API for schools." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    <script src="/index.js"></script>
+  </head>
+  <body class="bg-[#0b0f17] text-slate-100 antialiased selection:bg-blue-500/20 selection:text-blue-200" style="font-family:'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">
+    <!-- Top Announcement -->
+    <div class="relative isolate">
+      <div class="w-full bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-cyan-500/10 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 text-center text-sm">
+          <span class="text-slate-300">Now inviting schools and districts to our private beta.</span>
+          <a href="#api" class="ml-2 inline-flex items-center text-blue-300 hover:text-blue-200 underline underline-offset-4">Get early access</a>
+        </div>
+      </div>
+      <!-- Navbar -->
+      <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/0 bg-[#0b0f17]/70 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16">
+            <a href="#" class="flex items-center gap-3 group">
+              <div class="h-8 w-8 rounded-md bg-white/5 ring-1 ring-white/15 grid place-items-center text-slate-100 group-hover:ring-white/25 transition">
+                <span class="text-xs font-semibold tracking-tight">M</span>
+              </div>
+              <span class="text-lg font-semibold tracking-tight">Mentorly</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm text-slate-300">
+              <a href="#features" class="hover:text-slate-100 focus-visible:outline outline-2 outline-offset-2 outline-blue-500 rounded">Features</a>
+              <a href="#audience" class="hover:text-slate-100 focus-visible:outline outline-2 outline-offset-2 outline-blue-500 rounded">Who it's for</a>
+              <a href="#dashboards" class="hover:text-slate-100 focus-visible:outline outline-2 outline-offset-2 outline-blue-500 rounded">Dashboards</a>
+              <a href="#api" class="hover:text-slate-100 focus-visible:outline outline-2 outline-offset-2 outline-blue-500 rounded">API</a>
+              <a href="#pricing" class="hover:text-slate-100 focus-visible:outline outline-2 outline-offset-2 outline-blue-500 rounded">Pricing</a>
+            </nav>
+            <div class="hidden md:flex items-center gap-3">
+              <a href="#" class="text-sm text-slate-300 hover:text-slate-100 px-3 py-2 rounded-md focus-visible:outline outline-2 outline-offset-2 outline-blue-500">Sign in</a>
+              <a href="#cta" class="inline-flex items-center gap-2 bg-blue-500/90 hover:bg-blue-500 text-white text-sm px-4 py-2.5 rounded-md shadow-sm ring-1 ring-inset ring-white/10 focus-visible:outline outline-2 outline-offset-2 outline-blue-500 transition">
+                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                Get started
+              </a>
+            </div>
+            <button class="md:hidden inline-flex items-center justify-center p-2 rounded-md hover:bg-white/5 ring-1 ring-white/10 focus-visible:outline outline-2 outline-offset-2 outline-blue-500" aria-label="Open menu">
+              <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Hero -->
+      <section class="relative overflow-hidden">
+        <div class="absolute inset-0 -z-10 opacity-40 pointer-events-none">
+          <div class="absolute -top-32 -left-32 w-[40rem] h-[40rem] rounded-full bg-blue-500/10 blur-3xl"></div>
+          <div class="absolute top-1/2 right-0 w-[36rem] h-[36rem] rounded-full bg-indigo-500/10 blur-3xl"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-12">
+          <div class="grid lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <span class="inline-flex items-center gap-2 text-xs text-blue-300 bg-blue-500/10 ring-1 ring-inset ring-blue-400/20 px-2.5 py-1 rounded-full">
+                <i data-lucide="bolt" class="w-3.5 h-3.5"></i>
+                Teaching-as-a-Service
+              </span>
+              <h1 class="mt-5 text-4xl sm:text-5xl xl:text-6xl font-semibold tracking-tight text-white">
+                Personalized Teaching. On Demand.
+              </h1>
+              <p class="mt-4 text-base sm:text-lg text-slate-300 max-w-xl">
+                Mentorly blends an AI-powered lesson builder with real expert mentors to deliver truly adaptive learning—any subject, any level.
+              </p>
+              <div class="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <a href="#cta" class="inline-flex items-center justify-center gap-2 bg-blue-500/90 hover:bg-blue-500 text-white text-sm sm:text-base px-5 py-3 rounded-md shadow-sm ring-1 ring-inset ring-white/10 focus-visible:outline outline-2 outline-offset-2 outline-blue-500 transition">
+                  <i data-lucide="wand-2" class="w-5 h-5"></i>
+                  Build my first lesson
+                </a>
+                <a href="#" class="inline-flex items-center justify-center gap-2 text-slate-100 bg-white/5 hover:bg-white/10 text-sm sm:text-base px-5 py-3 rounded-md ring-1 ring-inset ring-white/10 focus-visible:outline outline-2 outline-offset-2 outline-blue-500 transition">
+                  <i data-lucide="calendar" class="w-5 h-5"></i>
+                  Book a demo
+                </a>
+              </div>
+              <div class="mt-6 flex items-center gap-4 text-xs text-slate-400">
+                <div class="flex -space-x-2">
+                  <img alt="Mentor 1" src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=200&auto=format&fit=crop" class="h-8 w-8 rounded-full ring-2 ring-[#0b0f17] object-cover" />
+                  <img alt="Mentor 2" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=200&auto=format&fit=crop" class="h-8 w-8 rounded-full ring-2 ring-[#0b0f17] object-cover" />
+                  <img alt="Mentor 3" src="https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=200&auto=format&fit=crop" class="h-8 w-8 rounded-full ring-2 ring-[#0b0f17] object-cover" />
+                </div>
+                <span>Vetted mentors across K-12 and adult upskilling</span>
+              </div>
+            </div>
+            <!-- Hero Mock: AI Lesson Builder + Mentor Card -->
+            <div class="relative">
+              <div class="relative rounded-xl bg-white/5 ring-1 ring-white/10 p-4 sm:p-6 lg:p-8 shadow-2xl">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <div class="h-8 w-8 rounded-md bg-blue-500/15 grid place-items-center ring-1 ring-blue-400/20">
+                      <i data-lucide="wand-2" class="w-4.5 h-4.5 text-blue-300"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold tracking-tight">AI Lesson Builder</h3>
+                  </div>
+                  <span class="text-xs text-slate-400">Draft in seconds</span>
+                </div>
+                <div class="mt-4 grid sm:grid-cols-2 gap-3">
+                  <div>
+                    <label class="text-xs text-slate-400">Goal</label>
+                    <div class="mt-1.5 flex items-center gap-2 bg-white/5 hover:bg-white/10 rounded-md ring-1 ring-white/10 px-3 py-2">
+                      <i data-lucide="target" class="w-4 h-4 text-slate-300"></i>
+                      <input type="text" placeholder="Master fractions" class="bg-transparent w-full text-sm outline-none placeholder:text-slate-500" />
+                    </div>
+                  </div>
+                  <div>
+                    <label class="text-xs text-slate-400">Grade / Level</label>
+                    <div class="mt-1.5 flex items-center justify-between bg-white/5 hover:bg-white/10 rounded-md ring-1 ring-white/10 px-3 py-2">
+                      <div class="flex items-center gap-2">
+                        <i data-lucide="layers" class="w-4 h-4 text-slate-300"></i>
+                        <span class="text-sm">Grade 5</span>
+                      </div>
+                      <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400"></i>
+                    </div>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <label class="text-xs text-slate-400">Preferences</label>
+                    <div class="mt-1.5 bg-white/5 hover:bg-white/10 rounded-md ring-1 ring-white/10 px-3 py-2">
+                      <input type="text" placeholder="Visual + interactive, 30 min lessons, weekly recap" class="bg-transparent w-full text-sm outline-none placeholder:text-slate-500" />
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-4 flex items-center gap-2">
+                  <button class="inline-flex items-center gap-2 text-sm bg-blue-500/90 hover:bg-blue-500 text-white px-3 py-2 rounded-md ring-1 ring-white/10 focus-visible:outline outline-2 outline-offset-2 outline-blue-500 transition">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                    Generate plan
+                  </button>
+                  <button class="inline-flex items-center gap-2 text-sm bg-white/5 hover:bg-white/10 text-slate-100 px-3 py-2 rounded-md ring-1 ring-white/10 focus-visible:outline outline-2 outline-offset-2 outline-blue-500 transition">
+                    <i data-lucide="message-square" class="w-4 h-4"></i>
+                    Refine with AI
+                  </button>
+                </div>
+                <div class="mt-6 rounded-lg bg-black/30 ring-1 ring-white/10 p-4">
+                  <div class="flex items-center justify-between">
+                    <h4 class="text-sm font-semibold tracking-tight">Draft lesson outline</h4>
+                    <span class="text-xs text-slate-400">Adaptive v2</span>
+                  </div>
+                  <ul class="mt-3 space-y-2 text-sm text-slate-300">
+                    <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-green-400 mt-0.5"></i> Diagnostic mini-quiz on prior knowledge</li>
+                    <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-green-400 mt-0.5"></i> Visual walkthrough: Fractions as parts of a whole</li>
+                    <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-green-400 mt-0.5"></i> 10 interactive problems with hints</li>
+                    <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-green-400 mt-0.5"></i> Worksheet + Parent summary</li>
+                  </ul>
+                </div>
+              </div>
+              <!-- Floating Mentor Card -->
+              <div class="hidden sm:block absolute -bottom-6 -right-6 w-64 rounded-xl bg-white/5 ring-1 ring-white/10 backdrop-blur p-4 shadow-xl">
+                <div class="flex items-center gap-3">
+                  <img alt="Mentor avatar" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=200&auto=format&fit=crop" class="h-10 w-10 rounded-full object-cover ring-2 ring-[#0b0f17]" />
+                  <div>
+                    <p class="text-sm font-semibold tracking-tight">Ava, M.Ed.</p>
+                    <p class="text-xs text-slate-400">Math • K-8 • EST</p>
+                  </div>
+                </div>
+                <div class="mt-3 grid grid-cols-3 gap-2">
+                  <button class="text-xs bg-white/5 hover:bg-white/10 px-2 py-1.5 rounded-md ring-1 ring-white/10">1:1</button>
+                  <button class="text-xs bg-white/5 hover:bg-white/10 px-2 py-1.5 rounded-md ring-1 ring-white/10">Group</button>
+                  <button class="text-xs bg-blue-500/90 hover:bg-blue-500 text-white px-2 py-1.5 rounded-md ring-1 ring-white/10">Book</button>
+                </div>
+                <div class="mt-3 text-[11px] text-slate-400 flex items-center gap-2">
+                  <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                  Background-checked • Top 2% mentors
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Trust -->
+          <div class="mt-12 sm:mt-16 border-t border-white/10 pt-8">
+            <p class="text-xs uppercase tracking-wider text-slate-400 text-center">Trusted by learners and institutions</p>
+            <div class="mt-4 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-slate-300">
+              <div class="px-3 py-1.5 rounded-md ring-1 ring-white/10 bg-white/5 text-sm tracking-tight">ALPHA</div>
+              <div class="px-3 py-1.5 rounded-md ring-1 ring-white/10 bg-white/5 text-sm tracking-tight">NOVA</div>
+              <div class="px-3 py-1.5 rounded-md ring-1 ring-white/10 bg-white/5 text-sm tracking-tight">ORBIT</div>
+              <div class="px-3 py-1.5 rounded-md ring-1 ring-white/10 bg-white/5 text-sm tracking-tight">LYRA</div>
+              <div class="px-3 py-1.5 rounded-md ring-1 ring-white/10 bg-white/5 text-sm tracking-tight">ARC</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section id="features" class="py-16 sm:py-24 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-end justify-between gap-4">
+            <div>
+              <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-white">Everything you need to teach — at scale</h2>
+              <p class="mt-2 text-slate-400 max-w-2xl">Design personalized lessons, connect with real mentors, and track outcomes with adaptive curriculum and dashboards.</p>
+            </div>
+            <a href="#cta" class="hidden md:inline-flex items-center gap-2 text-sm text-slate-100 bg-white/5 hover:bg-white/10 px-3 py-2 rounded-md ring-1 ring-white/10">
+              Explore the platform
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+          <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <!-- AI-Powered Lesson Builder -->
+            <div class="rounded-xl bg-white/5 ring-1 ring-white/10 p-5 hover:ring-white/20 transition">
+              <div class="flex items-center gap-3">
+                <div class="h-9 w-9 rounded-md bg-blue-500/15 grid place-items-center ring-1 ring-blue-400/20">
+                  <i data-lucide="wand-2" class="w-5 h-5 text-blue-300"></i>
+                </div>
+                <h3 class="font-semibold tracking-tight">AI-Powered Lesson Builder</h3>
+              </div>
+              <p class="mt-2 text-sm text-slate-300">Generate lesson plans from goals, age, and skill level. Adjust tone, difficulty, and time-on-task instantly.</p>
+            </div>
+            <!-- Human Mentors -->
+            <div class="rounded-xl bg-white/5 ring-1 ring-white/10 p-5 hover:ring-white/20 transition">
+              <div class="flex items-center gap-3">
+                <div class="h-9 w-9 rounded-md bg-emerald-500/15 grid place-items-center ring-1 ring-emerald-400/20">
+                  <i data-lucide="users-round" class="w-5 h-5 text-emerald-300"></i>
+                </div>
+                <h3 class="font-semibold tracking-tight">Human Mentors on Demand</h3>
+              </div>
+              <p class="mt-2 text-sm text-slate-300">Book 1:1 or group sessions with vetted educators. Integrated scheduling, messaging, and session notes.</p>
+            </div>
+            <!-- Curriculum Intelligence -->
+            <div class="rounded-xl bg-white/5 ring-1 ring-white/10 p-5 hover:ring-white/20 transition">
+              <div class="flex items-center gap-3">
+                <div class="h-9 w-9 rounded-md bg-violet-500/15 grid place-items-center ring-1 ring-violet-400/20">
+                  <i data-lucide="brain" class="w-5 h-5 text-violet-300"></i>
+                </div>
+                <h3 class="font-semibold tracking-tight">Curriculum Intelligence</h3>
+              </div>
+              <p class="mt-2 text-sm text-slate-300">Pathways adapt to progress, strengths, and gaps. Every quiz and worksheet refines the next lesson.</p>
+            </div>
+            <!-- Multi-format Content -->
+            <div class="rounded-xl bg-white/5 ring-1 ring-white/10 p-5 hover:ring-white/20 transition">
+              <div class="flex items-center gap-3">
+                <div class="h-9 w-9 rounded-md bg-cyan-500/15 grid place-items-center ring-1 ring-cyan-400/20">
+                  <i data-lucide="file-video" class="w-5 h-5 text-cyan-300"></i>
+                </div>
+                <h3 class="font-semibold tracking-tight">Multi-format Content</h3>
+              </div>
+              <p class="mt-2 text-sm text-slate-300">Video lessons, interactive quizzes, worksheets, and live sessions—built into one workflow.</p>
+            </div>
+            <!-- Parent & Teacher Dashboards -->
+            <div class="rounded-xl bg-white/5 ring-1 ring-white/10 p-5 hover:ring-white/20 transition">
+              <div class="flex items-center gap-3">
+                <div class="h-9 w-9 rounded-md bg-amber-500/15 grid place-items-center ring-1 ring-amber-400/20">
+                  <i data-lucide="bar-chart-3" class="w-5 h-5 text-amber-300"></i>
+                </div>
+                <h3 class="font-semibold tracking-tight">Parent & Teacher Dashboards</h3>
+              </div>
+              <p class="mt-2 text-sm text-slate-300">Track milestones, attendance, assignments, and growth. Export reports with one click.</p>
+            </div>
+            <!-- API for Schools & Tutors -->
+            <div class="rounded-xl bg-white/5 ring-1 ring-white/10 p-5 hover:ring-white/20 transition">
+              <div class="flex items-center gap-3">
+                <div class="h-9 w-9 rounded-md bg-sky-500/15 grid place-items-center ring-1 ring-sky-400/20">
+                  <i data-lucide="plug" class="w-5 h-5 text-sky-300"></i>
+                </div>
+                <h3 class="font-semibold tracking-tight">API for Schools & Tutors</h3>
+              </div>
+              <p class="mt-2 text-sm text-slate-300">White-label flows and SSO. Embed lessons and progress into your LMS in minutes.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Audience -->
+      <section id="audience" class="py-16 sm:py-24 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-white">Built for learners, parents, and educators</h2>
+          <div class="mt-8 grid md:grid-cols-3 gap-6">
+            <!-- Parents & K-12 -->
+            <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 overflow-hidden hover:ring-white/20 transition">
+              <img alt="K-12 learning" src="https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=1200&auto=format&fit=crop" class="h-40 w-full object-cover">
+              <div class="p-5">
+                <div class="flex items-center gap-2 text-sm text-blue-300">
+                  <i data-lucide="sparkles" class="w-4 h-4"></i>
+                  Parents & K-12 Students
+                </div>
+                <p class="mt-2 text-sm text-slate-300">Personalized homework help, targeted practice, and live mentors. Parent summaries after each session.</p>
+                <ul class="mt-3 space-y-1.5 text-sm text-slate-300">
+                  <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Age-appropriate lessons</li>
+                  <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Flexible scheduling</li>
+                  <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Progress dashboards</li>
+                </ul>
+              </div>
+            </div>
+            <!-- Adult Learners -->
+            <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 overflow-hidden hover:ring-white/20 transition">
+              <img alt="Adult learning" src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=1200&auto=format&fit=crop" class="h-40 w-full object-cover">
+              <div class="p-5">
+                <div class="flex items-center gap-2 text-sm text-emerald-300">
+                  <i data-lucide="zap" class="w-4 h-4"></i>
+                  Adult Learners
+                </div>
+                <p class="mt-2 text-sm text-slate-300">Microlearning for upskilling and career transitions. Bite-sized lessons and mentor-led reviews.</p>
+                <ul class="mt-3 space-y-1.5 text-sm text-slate-300">
+                  <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Role-based paths</li>
+                  <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Portfolio-ready projects</li>
+                  <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Certification prep</li>
+                </ul>
+              </div>
+            </div>
+            <!-- Tutors, Educators & Schools -->
+            <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 overflow-hidden hover:ring-white/20 transition">
+              <img alt="Tutors and schools" src="https://images.unsplash.com/photo-1523580846011-23f28a9b1c75?q=80&w=1200&auto=format&fit=crop" class="h-40 w-full object-cover">
+              <div class="p-5">
+                <div class="flex items-center gap-2 text-sm text-violet-300">
+                  <i data-lucide="building-2" class="w-4 h-4"></i>
+                  Tutors, Educators & Schools
+                </div>
+                <p class="mt-2 text-sm text-slate-300">Deliver services under your brand with white-label flows, SSO, and reporting that fits your SIS/LMS.</p>
+                <ul class="mt-3 space-y-1.5 text-sm text-slate-300">
+                  <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> White-label portal</li>
+                  <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Bulk roster + SSO</li>
+                  <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Admin analytics</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dashboards -->
+      <section id="dashboards" class="py-16 sm:py-24 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-2 gap-8 items-stretch">
+            <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-6 hover:ring-white/20 transition">
+              <div class="flex items-center justify-between">
+                <h3 class="text-2xl font-semibold tracking-tight text-white">Parent & Teacher Dashboard</h3>
+                <span class="text-xs text-slate-400">Live</span>
+              </div>
+              <p class="mt-2 text-sm text-slate-300">Monitor progress, attendance, and mastery. Export reports or share with stakeholders.</p>
+              <div class="mt-5 grid sm:grid-cols-3 gap-4">
+                <div class="rounded-lg bg-black/30 ring-1 ring-white/10 p-4">
+                  <div class="text-xs text-slate-400">Streak</div>
+                  <div class="mt-1 text-xl font-semibold tracking-tight">12 days</div>
+                </div>
+                <div class="rounded-lg bg-black/30 ring-1 ring-white/10 p-4">
+                  <div class="text-xs text-slate-400">Mastery</div>
+                  <div class="mt-1 text-xl font-semibold tracking-tight">82%</div>
+                </div>
+                <div class="rounded-lg bg-black/30 ring-1 ring-white/10 p-4">
+                  <div class="text-xs text-slate-400">Sessions</div>
+                  <div class="mt-1 text-xl font-semibold tracking-tight">34</div>
+                </div>
+              </div>
+              <div class="mt-6 rounded-lg bg-black/30 ring-1 ring-white/10 p-4">
+                <h4 class="text-sm font-semibold tracking-tight">Weekly progress</h4>
+                <p class="text-xs text-slate-400">Mastery by topic</p>
+                <div class="mt-3">
+                  <div class="relative h-48 rounded-md bg-white/5 ring-1 ring-white/10 p-2">
+                    <div class="h-full w-full rounded bg-[#0b0f17]/40">
+                      <div class="relative h-full">
+                        <div class="h-full w-full">
+                          <div class="h-full w-full">
+                            <div class="h-full w-full">
+                              <div class="h-full w-full">
+                                <div class="h-full w-full">
+                                  <div class="h-full w-full">
+                                    <div class="h-full w-full">
+                                      <div class="h-full w-full">
+                                        <div class="h-full w-full">
+                                          <div class="h-full w-full">
+                                            <div class="h-full w-full">
+                                              <!-- wrapper to avoid chart sizing bug -->
+                                              <div class="h-full w-full">
+                                                <div class="h-full w-full">
+                                                  <div class="h-full w-full">
+                                                    <div class="h-full w-full">
+                                                      <div class="h-full w-full">
+                                                        <div class="h-full w-full">
+                                                          <div class="h-full w-full">
+                                                            <div class="h-full w-full">
+                                                              <div class="h-full w-full">
+                                                                <div class="h-full w-full">
+                                                                  <div class="h-full w-full">
+                                                                    <div class="h-full w-full">
+                                                                      <div class="h-full w-full">
+                                                                        <div class="h-full w-full">
+                                                                          <div class="h-full w-full">
+                                                                            <div class="h-full w-full">
+                                                                              <div class="h-full w-full">
+                                                                                <div class="h-full w-full">
+                                                                                  <div class="h-full w-full">
+                                                                                    <div class="h-full w-full">
+                                                                                      <div class="h-full w-full">
+                                                                                        <div class="h-full w-full">
+                                                                                          <div class="h-full w-full">
+                                                                                            <div class="h-full w-full">
+                                                                                              <div class="h-full w-full">
+                                                                                                <div class="h-full w-full">
+                                                                                                  <div class="h-full w-full">
+                                                                                                    <div class="h-full w-full">
+                                                                                                      <div class="h-full w-full">
+                                                                                                        <div class="h-full w-full">
+                                                                                                          <div class="h-full w-full">
+                                                                                                            <div class="h-40 w-full">
+                                                                                                              <div class="h-full w-full">
+                                                                                                                <div>
+                                                                                                                  <div>
+                                                                                                                    <div>
+                                                                                                                      <div class="relative">
+                                                                                                                        <div>
+                                                                                                                          <div class="relative">
+                                                                                                                            <div>
+                                                                                                                              <!-- Intentional nested div>canvas wrapper -->
+                                                                                                                              <div>
+                                                                                                                                <canvas id="progressChart"></canvas>
+                                                                                                                              </div>
+                                                                                                                            </div>
+                                                                                                                          </div>
+                                                                                                                        </div>
+                                                                                                                      </div>
+                                                                                                                    </div>
+                                                                                                                  </div>
+                                                                                                                </div>
+                                                                                                              </div>
+                                                                                                            </div>
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </div>
+                                                                                                    </div>
+                                                                                                  </div>
+                                                                                                </div>
+                                                                                              </div>
+                                                                                            </div>
+                                                                                          </div>
+                                                                                        </div>
+                                                                                      </div>
+                                                                                    </div>
+                                                                                  </div>
+                                                                                </div>
+                                                                              </div>
+                                                                            </div>
+                                                                          </div>
+                                                                        </div>
+                                                                      </div>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <!-- end wrapper -->
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-400">
+                  <span class="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-white/5 ring-1 ring-white/10"><span class="h-2 w-2 rounded-full bg-blue-400"></span> Math</span>
+                  <span class="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-white/5 ring-1 ring-white/10"><span class="h-2 w-2 rounded-full bg-emerald-400"></span> Reading</span>
+                  <span class="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-white/5 ring-1 ring-white/10"><span class="h-2 w-2 rounded-full bg-violet-400"></span> Science</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Live session + assignments -->
+            <div class="grid gap-6">
+              <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-6 hover:ring-white/20 transition">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="h-9 w-9 rounded-md bg-emerald-500/15 grid place-items-center ring-1 ring-emerald-400/20">
+                      <i data-lucide="video" class="w-5 h-5 text-emerald-300"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold tracking-tight">Upcoming live session</h3>
+                  </div>
+                  <span class="text-xs text-slate-400 inline-flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5"></i> Today 5:30 PM</span>
+                </div>
+                <div class="mt-4 flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <img alt="Mentor avatar" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=200&auto=format&fit=crop" class="h-10 w-10 rounded-full object-cover ring-2 ring-[#0b0f17]" />
+                    <div>
+                      <p class="text-sm font-semibold tracking-tight">Diego, B.Sc.</p>
+                      <p class="text-xs text-slate-400">Physics • HS • PST</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <button class="text-xs bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-md ring-1 ring-white/10">Message</button>
+                    <button class="text-xs bg-blue-500/90 hover:bg-blue-500 text-white px-3 py-1.5 rounded-md ring-1 ring-white/10">Join</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-6 hover:ring-white/20 transition">
+                <div class="flex items-center gap-3">
+                  <div class="h-9 w-9 rounded-md bg-amber-500/15 grid place-items-center ring-1 ring-amber-400/20">
+                    <i data-lucide="notebook-pen" class="w-5 h-5 text-amber-300"></i>
+                  </div>
+                  <h3 class="text-xl font-semibold tracking-tight">Assignments</h3>
+                </div>
+                <div class="mt-4 space-y-3">
+                  <div class="flex items-center justify-between p-3 rounded-lg bg-black/30 ring-1 ring-white/10">
+                    <div class="flex items-center gap-3">
+                      <span class="h-2.5 w-2.5 rounded-full bg-blue-400"></span>
+                      <div>
+                        <p class="text-sm font-medium">Fractions practice set</p>
+                        <p class="text-xs text-slate-400">Due in 2 days</p>
+                      </div>
+                    </div>
+                    <button class="text-xs bg-white/5 hover:bg-white/10 px-2.5 py-1.5 rounded-md ring-1 ring-white/10">Open</button>
+                  </div>
+                  <div class="flex items-center justify-between p-3 rounded-lg bg-black/30 ring-1 ring-white/10">
+                    <div class="flex items-center gap-3">
+                      <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                      <div>
+                        <p class="text-sm font-medium">Reading comprehension</p>
+                        <p class="text-xs text-slate-400">Due tomorrow</p>
+                      </div>
+                    </div>
+                    <button class="text-xs bg-white/5 hover:bg-white/10 px-2.5 py-1.5 rounded-md ring-1 ring-white/10">Open</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- API -->
+      <section id="api" class="py-16 sm:py-24 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <div class="inline-flex items-center gap-2 text-xs text-sky-300 bg-sky-500/10 ring-1 ring-inset ring-sky-400/20 px-2.5 py-1 rounded-full">
+                <i data-lucide="plug" class="w-3.5 h-3.5"></i>
+                White-label API
+              </div>
+              <h3 class="mt-4 text-3xl sm:text-4xl font-semibold tracking-tight text-white">Embed Mentorly into your LMS in minutes</h3>
+              <p class="mt-3 text-slate-300">Provision users, sync rosters, generate lessons, and stream progress to your systems with simple endpoints and SSO.</p>
+              <ul class="mt-4 space-y-2 text-sm text-slate-300">
+                <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-sky-300 mt-0.5"></i> OAuth + SAML SSO</li>
+                <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-sky-300 mt-0.5"></i> Webhooks for events</li>
+                <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-sky-300 mt-0.5"></i> SDKs for JS and Python</li>
+              </ul>
+              <div class="mt-6 flex gap-3">
+                <a href="#" class="inline-flex items-center gap-2 text-sm bg-white/5 hover:bg-white/10 text-slate-100 px-4 py-2.5 rounded-md ring-1 ring-white/10">
+                  API Docs
+                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+                <a href="#cta" class="inline-flex items-center gap-2 text-sm bg-blue-500/90 hover:bg-blue-500 text-white px-4 py-2.5 rounded-md ring-1 ring-white/10">
+                  Request sandbox
+                  <i data-lucide="key-round" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+            <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-5">
+              <div class="flex items-center gap-2 text-xs text-slate-400">
+                <i data-lucide="terminal" class="w-4 h-4"></i>
+                Example: Create a lesson plan
+              </div>
+              <div class="mt-3 rounded-lg bg-black/40 ring-1 ring-white/10 p-4">
+                <pre class="text-[12px] leading-6 text-slate-200 overflow-auto"><code>POST /v1/lessons
+{
+  "student_id": "stu_91x8",
+  "goal": "Algebra: Quadratic basics",
+  "level": "Grade 9",
+  "preferences": {
+    "length_min": 30,
+    "style": ["visual", "problem-first"]
+  }
+}</code></pre>
+              </div>
+              <div class="mt-2 text-[11px] text-slate-400 flex items-center gap-2">
+                <i data-lucide="shield" class="w-3.5 h-3.5"></i>
+                FERPA-ready • SOC 2 in progress
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing -->
+      <section id="pricing" class="py-16 sm:py-24 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-end justify-between">
+            <div>
+              <h3 class="text-3xl sm:text-4xl font-semibold tracking-tight text-white">Simple, transparent pricing</h3>
+              <p class="mt-2 text-slate-300">Start free. Upgrade when you need mentors, advanced analytics, or white-label features.</p>
+            </div>
+            <div class="hidden sm:flex items-center bg-white/5 ring-1 ring-white/10 rounded-md p-1">
+              <button class="text-xs px-3 py-1.5 rounded bg-blue-500/20 text-blue-200">Monthly</button>
+              <button class="text-xs px-3 py-1.5 rounded hover:bg-white/10 text-slate-200">Yearly <span class="text-green-300 ml-1">-15%</span></button>
+            </div>
+          </div>
+          <div class="mt-8 grid md:grid-cols-3 gap-6">
+            <!-- Starter -->
+            <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-6 hover:ring-white/20 transition flex flex-col">
+              <h4 class="text-lg font-semibold tracking-tight">Starter</h4>
+              <p class="mt-1 text-sm text-slate-400">For individual learners</p>
+              <div class="mt-4">
+                <span class="text-3xl font-semibold tracking-tight">$0</span>
+                <span class="text-sm text-slate-400">/mo</span>
+              </div>
+              <ul class="mt-4 space-y-2 text-sm text-slate-300">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> AI lesson builder</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Quizzes & worksheets</li>
+                <li class="flex items-center gap-2"><i data-lucide="minus" class="w-4 h-4 text-slate-500"></i> Mentor sessions</li>
+              </ul>
+              <a href="#cta" class="mt-6 inline-flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-slate-100 text-sm px-4 py-2.5 rounded-md ring-1 ring-white/10">Get started</a>
+            </div>
+            <!-- Pro -->
+            <div class="rounded-2xl bg-gradient-to-b from-blue-500/10 to-blue-500/0 ring-1 ring-white/10 p-6 hover:ring-white/20 transition flex flex-col">
+              <div class="inline-flex items-center gap-2 text-xs text-blue-300 bg-blue-500/10 ring-1 ring-inset ring-blue-400/20 px-2 py-0.5 rounded-full w-max">Popular</div>
+              <h4 class="mt-2 text-lg font-semibold tracking-tight">Pro</h4>
+              <p class="mt-1 text-sm text-slate-400">For families or serious upskillers</p>
+              <div class="mt-4">
+                <span class="text-3xl font-semibold tracking-tight">$29</span>
+                <span class="text-sm text-slate-400">/mo</span>
+              </div>
+              <ul class="mt-4 space-y-2 text-sm text-slate-300">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Everything in Starter</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Parent dashboard</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> 1 mentor session / month</li>
+              </ul>
+              <a href="#cta" class="mt-6 inline-flex items-center justify-center gap-2 bg-blue-500/90 hover:bg-blue-500 text-white text-sm px-4 py-2.5 rounded-md ring-1 ring-white/10">Upgrade</a>
+            </div>
+            <!-- Institution -->
+            <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-6 hover:ring-white/20 transition flex flex-col">
+              <h4 class="text-lg font-semibold tracking-tight">Institution</h4>
+              <p class="mt-1 text-sm text-slate-400">For schools and tutoring orgs</p>
+              <div class="mt-4">
+                <span class="text-3xl font-semibold tracking-tight">Custom</span>
+              </div>
+              <ul class="mt-4 space-y-2 text-sm text-slate-300">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> White-label + SSO</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Admin analytics</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> Priority mentor pool</li>
+              </ul>
+              <a href="#cta" class="mt-6 inline-flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-slate-100 text-sm px-4 py-2.5 rounded-md ring-1 ring-white/10">Contact sales</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section id="cta" class="py-16 sm:py-24 border-t border-white/10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="rounded-2xl bg-gradient-to-br from-white/5 to-white/0 ring-1 ring-white/10 p-6 sm:p-10 text-center">
+            <h3 class="text-3xl sm:text-4xl font-semibold tracking-tight text-white">Start free. Meet your mentor this week.</h3>
+            <p class="mt-2 text-slate-300">Create a tailored learning plan and try interactive lessons—then add a mentor when you're ready.</p>
+            <form class="mt-6 grid sm:grid-cols-[1fr,auto] gap-3 max-w-2xl mx-auto">
+              <div class="flex items-center gap-2 bg-white/5 hover:bg-white/10 rounded-md ring-1 ring-white/10 px-3 py-2.5">
+                <i data-lucide="mail" class="w-4 h-4 text-slate-300"></i>
+                <input type="email" required placeholder="you@school.edu" aria-label="Email address" class="bg-transparent w-full text-sm outline-none placeholder:text-slate-500" />
+              </div>
+              <button type="submit" class="inline-flex items-center justify-center gap-2 bg-blue-500/90 hover:bg-blue-500 text-white text-sm px-5 py-3 rounded-md ring-1 ring-white/10 focus-visible:outline outline-2 outline-offset-2 outline-blue-500 transition">
+                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                Get early access
+              </button>
+            </form>
+            <div class="mt-4 text-xs text-slate-400 flex items-center justify-center gap-2">
+              <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+              We’ll never share your email. Unsubscribe anytime.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div class="grid md:grid-cols-4 gap-8">
+            <div class="md:col-span-2">
+              <a href="#" class="inline-flex items-center gap-3">
+                <div class="h-8 w-8 rounded-md bg-white/5 ring-1 ring-white/15 grid place-items-center text-slate-100">
+                  <span class="text-xs font-semibold tracking-tight">M</span>
+                </div>
+                <span class="text-lg font-semibold tracking-tight">Mentorly</span>
+              </a>
+              <p class="mt-3 text-sm text-slate-400 max-w-md">Teaching-as-a-Service: AI lesson builder, real mentors, adaptive curriculum, and dashboards. Built for families, schools, and tutoring orgs.</p>
+              <div class="mt-4 flex items-center gap-3 text-xs text-slate-400">
+                <span class="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-white/5 ring-1 ring-white/10"><i data-lucide="shield-check" class="w-3.5 h-3.5"></i> FERPA-ready</span>
+                <span class="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-white/5 ring-1 ring-white/10"><i data-lucide="lock" class="w-3.5 h-3.5"></i> SOC 2 in progress</span>
+              </div>
+            </div>
+            <div>
+              <h5 class="text-sm font-semibold tracking-tight text-slate-200">Product</h5>
+              <ul class="mt-3 space-y-2 text-sm text-slate-400">
+                <li><a href="#features" class="hover:text-slate-200">Features</a></li>
+                <li><a href="#dashboards" class="hover:text-slate-200">Dashboards</a></li>
+                <li><a href="#pricing" class="hover:text-slate-200">Pricing</a></li>
+                <li><a href="#api" class="hover:text-slate-200">API</a></li>
+              </>
+            </div>
+            <div>
+              <h5 class="text-sm font-semibold tracking-tight text-slate-200">Company</h5>
+              <ul class="mt-3 space-y-2 text-sm text-slate-400">
+                <li><a href="#" class="hover:text-slate-200">About</a></li>
+                <li><a href="#" class="hover:text-slate-200">Careers</a></li>
+                <li><a href="#" class="hover:text-slate-200">Contact</a></li>
+                <li class="flex items-center gap-2">
+                  <a href="#" class="inline-flex items-center gap-1 hover:text-slate-200"><i data-lucide="twitter" class="w-4 h-4"></i> <span>Twitter</span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-slate-400">
+            <p>© <span id="year"></span> Mentorly, Inc. All rights reserved.</p>
+            <div class="flex items-center gap-4">
+              <a href="#" class="hover:text-slate-200">Privacy</a>
+              <a href="#" class="hover:text-slate-200">Terms</a>
+              <a href="#" class="hover:text-slate-200">Security</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>    
+  </body>
+</html>
